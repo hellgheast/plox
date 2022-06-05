@@ -1,10 +1,12 @@
-from enum import Enum,auto
+from enum import Enum, auto
 from typing import Dict
+
 
 class TokenType(Enum):
     """
     Using the Enum class for assigning the name of a lox token to a value
     """
+
     # Single char tokens
     LEFT_PAREN = "("
     RIGHT_PAREN = ")"
@@ -22,7 +24,7 @@ class TokenType(Enum):
     BANG_EQUAL = "!="
     EQUAL = "="
     EQUAL_EQUAL = "=="
-    GREATER= ">"
+    GREATER = ">"
     GREATER_EQUAL = ">="
     LESS = "<"
     LESS_EQUAL = "<="
@@ -51,8 +53,9 @@ class TokenType(Enum):
 
     def __str__(self):
         return self.name
-  
-LoxKeyword:Dict[str,TokenType] = {
+
+
+LoxKeyword: Dict[str, TokenType] = {
     # Keyword dict
     TokenType.AND.value: TokenType.AND,
     TokenType.CLASS.value: TokenType.CLASS,
@@ -73,17 +76,16 @@ LoxKeyword:Dict[str,TokenType] = {
 }
 
 
-
 class Token:
     """
     Placeholder class that contains all the info for a given Token
     """
-    def __init__(self,type:TokenType,lexeme:str,literal:object,line:int):
+
+    def __init__(self, type: TokenType, lexeme: str, literal: object, line: int):
         self.type = type
         self.lexeme = lexeme
         self.literal = literal
         self.line = line
-    
+
     def __str__(self):
         return f"{self.type} {self.lexeme} {self.literal}"
-
