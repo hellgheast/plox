@@ -188,12 +188,10 @@ class Scanner:
                 self.line += 1
             if peeked == "/" and nextpeeked == "*":
                 level += 1
-                print("..uplevel")
                 self.advance()
                 self.advance()
             elif peeked == "*" and nextpeeked == "/":
                 level -= 1
-                print("..downlevel")
                 self.advance()
                 self.advance()
             else:
