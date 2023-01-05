@@ -67,6 +67,7 @@ class Scanner:
                     # We're dealing with C-like comment
                     self.handleBlockComments()
                 else:
+                    # We're dealing with a division
                     self.addToken(TokenType.SLASH)
             case " " | "\r" | "\t":
                 # We don't care about whitespaces
@@ -132,6 +133,8 @@ class Scanner:
         # Integer part
         while self.isDigit(self.peek()):
             self.advance()
+        
+        #TODO Add support for pure integers and floating points
 
         # Check the fractional part
         if self.peek() == "." and self.isDigit(self.peekNext()):
@@ -155,7 +158,7 @@ class Scanner:
             self.advance()
 
         if self.isAtEnd():
-            self.lox.error(self, "Unterminated string")
+            self.lox.error(self.line, "Unterminated string")
             return
 
         self.advance()
@@ -199,7 +202,7 @@ class Scanner:
 
         # TODO: Check if we finished to handle the comments
         if self.isAtEnd() and level > 0:
-            self.lox.error(self, "Unterminated block comment")
+            self.lox.error(self.line, "Unterminated block comment")
             return
 
     def addToken(self, type: TokenType) -> None:

@@ -16,7 +16,7 @@ class Lox:
         self.hadError: bool = False
 
     def report(self, line: int, where: str, msg: str) -> None:
-        print(f"[line {line}] Error{where}: {msg}", file=sys.stderr)
+        print(f"[line {line}] Error {where}: {msg}", file=sys.stderr)
         self.hadError = True
 
     def error(self, line: int, msg: str) -> None:
