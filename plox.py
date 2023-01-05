@@ -56,8 +56,8 @@ class Lox:
 
 
 if __name__ == "__main__":
-    developer: str = "Ismail"
-    print(f"Hello world {developer}")
+    # developer: str = "Ismail"
+    # print(f"Hello world {developer}")
 
     parser = argparse.ArgumentParser(
         description="Python lox interpreter", exit_on_error=False
