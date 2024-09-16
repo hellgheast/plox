@@ -1,8 +1,9 @@
-from enum import Enum, auto
+from enum import StrEnum, Enum, auto
 from typing import Dict
 
 
-class TokenType(Enum):
+#TODO: Use python 3.11 StrEnum to be more clean
+class TokenType(StrEnum):
     """
     Using the Enum class for assigning the name of a lox token to a value
     """
@@ -54,7 +55,7 @@ class TokenType(Enum):
     def __str__(self):
         return self.name
 
-
+#TODO check if we still need a dict ?
 LoxKeyword: Dict[str, TokenType] = {
     # Keyword dict
     TokenType.AND.value: TokenType.AND,

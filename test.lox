@@ -32,4 +32,3 @@ class Lunch < Breakfast {
         print "Let's drink a Coke !";
     }
 }
-/*

@@ -8,8 +8,8 @@ class Scanner:
         self.source: str = source
         self.lox = lox
         self.tokens: List[Token] = []
-        self.start: int = 0
-        self.current: int = 0
+        self.start: int = 0 # Offset of the beginning of the lexeme
+        self.current: int = 0 # current char considered in the lexeme
         self.line: int = 1
 
     def scanTokens(self) -> List[Token]:
@@ -133,17 +133,17 @@ class Scanner:
         # Integer part
         while self.isDigit(self.peek()):
             self.advance()
-        
-        #TODO Add support for pure integers and floating points
 
         # Check the fractional part
         if self.peek() == "." and self.isDigit(self.peekNext()):
             # Consume the dot
             self.advance()
 
-        # Fractional part
-        while self.isDigit(self.peek()):
-            self.advance()
+            # Fractional part
+            while self.isDigit(self.peek()):
+                self.advance()
+
+         #TODO Add support for pure integers (int64) with a different type ? and floating points
 
         # Finished the parsing of the number
         self.addTokenObj(

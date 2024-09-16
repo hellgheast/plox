@@ -33,7 +33,8 @@ class Lox:
         with open(script_file, "r") as f:
             print("Processing file..")
             program: str = f.read()
-        self.run(program)
+            self.run(program)
+        #TODO: Might need error handling for file ?
         if self.hadError:
             exit(65)
 

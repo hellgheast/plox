@@ -1,7 +1,10 @@
 # plox
-Python implementation of Lox language
+Python implementation of Lox language (in python 3.12 now)
 
-## Additions
+# Work done
+* Up to chapter 5
+
+## TODO Additions
 Add the support of true integers (32 and 64 bits)
 Add the support of bitwise operations,modulo,shift
 Add the support of ternary operator
